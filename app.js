@@ -8,7 +8,7 @@ var express = require('express'),
     methodOverride = require('method-override'),
     session = require('express-session'),
     passport = require('passport'),
-    swig = require('swig'),
+    nunjucks = require('nunjucks'),
     SpotifyStrategy = require('./index').Strategy,
     net = require('net'),
     network = require('network'),
@@ -141,7 +141,7 @@ app.use(express.static(__dirname + '/styles'));
 
 app.use(favicon(__dirname + '/favicon.ico'));
 
-app.engine('html', consolidate.swig);
+app.engine('html', consolidate.nunjucks);
 
 app.get('/', function(req, res) {
   res.render('qname.html', { title: 'Welcome to '});
